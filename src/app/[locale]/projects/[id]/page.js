@@ -111,7 +111,7 @@ export default async function ProjectPage({ params }) {
                     solution={project.solutionBlock}
                 />
                 <ProjectGallery gallery={project.gallery} />
-                <ClientReview data={project.testimonial} />
+                {/* <ClientReview data={project.testimonial} /> */}
             </main>
             <BottomCTA />
             <Footer />
