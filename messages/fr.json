@@ -73,6 +73,14 @@
             }
         }
     },
+    "ourApproach": {
+        "title": "Notre Approche du Travail",
+        "subtitle": "De l'idée au résultat — tout sous contrôle",
+        "descriptionTitle": "Nous réalisons des projets clé en main — de l'idée à la livraison du projet",
+        "text1": "Nous prenons en charge tout : sélection et achat des matériaux, organisation des équipes, contrôle qualité et respect des délais",
+        "text2": "Notre équipe comprend un designer, un architecte et un chef de projet qui assurent la précision, l'esthétique et le confort à chaque étape.",
+        "text3": "Nous fournissons des rapports photo, des devis transparents, des garanties sur les travaux et un respect strict des délais — car nous valorisons la confiance et le temps de nos clients"
+    },
     "dreamRepair": {
         "title": "Prêt pour la rénovation de vos rêves ?",
         "description": "Contactez-nous — nous vous conseillerons, calculerons le devis et suggérerons la meilleure solution pour vous.",
@@ -98,6 +106,9 @@
         "title": "Faites un Pas vers votre Rénovation de Rêve",
         "description": "Laissez une demande - nous vous contacterons pour une consultation gratuite. Nous vous aiderons à évaluer l'étendue des travaux, proposerons des solutions adaptées à votre budget et suggérerons les matériaux optimaux.",
         "button": "Obtenir une Consultation"
+    },
+    "reviewsSection": {
+        "title": "Avis des clients"
     },
     "footer": {
         "slogan": "Nous créons les meilleures solutions de rénovation",

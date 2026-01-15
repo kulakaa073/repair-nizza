@@ -4,12 +4,15 @@ import AboutUs from "@/components/homepage/AboutUs";
 import DreamRepair from "@/components/homepage/DreamRepair";
 import Hero from "@/components/homepage/Hero";
 import OurService from "@/components/homepage/OurService";
+import OurApproach from "@/components/homepage/OurApproach";
 import PortfolioSection from "@/components/homepage/PortfolioSection";
 import StepToDream from "@/components/homepage/StepToDream";
 import WeWorkWith from "@/components/homepage/WeWorkWith";
 import BottomCTA from "@/components/shared/bottomCTA/BottomCTA";
 import { client } from "@/sanityClient";
 import { heroBlurCardQuery, portfolioProjectsQuery } from "@/lib/queries";
+import { getGoogleReviews } from "@/lib/api";
+import Reviews from "@/components/homepage/Reviews";
 
 export async function generateMetadata({ params }) {
     const { locale } = params;
@@ -31,6 +34,8 @@ export async function generateMetadata({ params }) {
 export default async function Home() {
     const heroBlurCardData = await client.fetch(heroBlurCardQuery);
     const portfolioData = await client.fetch(portfolioProjectsQuery);
+    //const googleReviews = await getGoogleReviews();
+    const googleReviews = [];
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -42,6 +47,8 @@ export default async function Home() {
                 <WeWorkWith />
                 <DreamRepair />
                 <AboutUs />
+                <OurApproach />
+                <Reviews reviews={googleReviews} />
                 <StepToDream />
             </main>
             <BottomCTA />
