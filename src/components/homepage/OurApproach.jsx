@@ -9,6 +9,11 @@ import logo from "../../../public/images/SVG/logo-svg.svg";
 import approachImg1 from "../../../public/images/image/ourApproach/179e6eeed683f444f2de4a7cc1f9f2bc901914bd(8).webp";
 import approachImg2 from "../../../public/images/image/ourApproach/480ce55fdc325c00949ed3ba1fa9c0156aa5f21a(1).webp";
 import approachImg3 from "../../../public/images/image/ourApproach/cb95b8c813b0d959a6d4ec06c120a64bbdd0cd84(7).webp";
+import linesTopMob from "../../../public/images/image/ourApproach/lines-top-mob.webp";
+import linesTopDesk from "../../../public/images/image/ourApproach/lines-top-desk.webp";
+import linesBottomMob from "../../../public/images/image/ourApproach/lines-bottom-mob.webp";
+import linesBottomDesk from "../../../public/images/image/ourApproach/lines-bottom-desk.webp";
+import leavesDesk from "../../../public/images/image/ourApproach/leaves-desk.webp";
 
 const OurApproach = () => {
     const t = useTranslations("ourApproach");
@@ -38,6 +43,11 @@ const OurApproach = () => {
     const text3Ref = useRef(null);
     const logoRef = useRef(null);
     const cardsRef = useRef(null);
+    const linesTopMobRef = useRef(null);
+    const linesTopDeskRef = useRef(null);
+    const linesBottomMobRef = useRef(null);
+    const linesBottomDeskRef = useRef(null);
+    const leavesDeskRef = useRef(null);
 
     const isTitleInView = useInView(titleRef, { once: true, margin: "0px" });
     const isSubtitleInView = useInView(subtitleRef, {
@@ -53,9 +63,93 @@ const OurApproach = () => {
     const isText3InView = useInView(text3Ref, { once: true, margin: "0px" });
     const isLogoInView = useInView(logoRef, { once: true, margin: "0px" });
     const isCardsInView = useInView(cardsRef, { once: true, margin: "0px" });
+    const isLinesTopMobInView = useInView(linesTopMobRef, {
+        once: true,
+        margin: "0px",
+    });
+    const isLinesTopDeskInView = useInView(linesTopDeskRef, {
+        once: true,
+        margin: "0px",
+    });
+    const isLinesBottomMobInView = useInView(linesBottomMobRef, {
+        once: true,
+        margin: "0px",
+    });
+    const isLinesBottomDeskInView = useInView(linesBottomDeskRef, {
+        once: true,
+        margin: "0px",
+    });
+    const isLeavesDeskInView = useInView(leavesDeskRef, {
+        once: true,
+        margin: "0px",
+    });
 
     return (
-        <section className="py-[94px] lg:pb-[121px] lg:pt-[71px]">
+        <section className="relative py-[94px] lg:pb-[121px] lg:pt-[71px]">
+            <div className="inset-0 absolute pointer-events-none">
+                <motion.div
+                    ref={linesTopMobRef}
+                    initial={{ opacity: 0 }}
+                    animate={
+                        isLinesTopMobInView ? { opacity: 1 } : { opacity: 0 }
+                    }
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    className="lg:hidden w-[935px] h-[694px] absolute top-[-163px] left-[50%] -translate-x-1/2 -z-20"
+                >
+                    <Image
+                        src={linesTopMob}
+                        alt="lines top mob"
+                        className="object-cover"
+                    />
+                </motion.div>
+                <motion.div
+                    ref={linesTopDeskRef}
+                    initial={{ opacity: 0 }}
+                    animate={
+                        isLinesTopDeskInView ? { opacity: 1 } : { opacity: 0 }
+                    }
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    className="hidden lg:block w-[1409px] h-[622px] absolute top-[-43px] left-[-243px] -z-20"
+                >
+                    <Image
+                        src={linesTopDesk}
+                        alt="lines top mob"
+                        className="object-cover"
+                    />
+                </motion.div>
+                <motion.div
+                    ref={linesBottomDeskRef}
+                    initial={{ opacity: 0 }}
+                    animate={
+                        isLinesBottomDeskInView
+                            ? { opacity: 1 }
+                            : { opacity: 0 }
+                    }
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    className="hidden lg:block w-[934px] h-[634px] absolute bottom-[-186px] right-[-135px] -z-20"
+                >
+                    <Image
+                        src={linesBottomDesk}
+                        alt="lines bottom desk"
+                        className="object-cover"
+                    />
+                </motion.div>
+                <motion.div
+                    ref={linesBottomMobRef}
+                    initial={{ opacity: 0 }}
+                    animate={
+                        isLinesBottomMobInView ? { opacity: 1 } : { opacity: 0 }
+                    }
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    className="lg:hidden w-[775px] h-[478px] absolute bottom-[-103px] left-[50%] -translate-x-1/2 -z-20"
+                >
+                    <Image
+                        src={linesBottomMob}
+                        alt="lines bottom mob image"
+                        className="object-cover"
+                    />
+                </motion.div>
+            </div>
             <Container className="relative">
                 <div className="mb-4 lg:mb-[60px]">
                     <div className="flex gap-[34px] lg:gap-10 mb-6 lg:mb-10">
@@ -106,7 +200,7 @@ const OurApproach = () => {
                     </motion.p>
                 </div>
                 <div className="lg:flex lg:justify-between lg:items-center gap-10">
-                    <div className="lg:mr-16 lg:shrink-0">
+                    <div className="relative lg:mr-16 lg:shrink-0">
                         <motion.div
                             ref={cardsRef}
                             initial={{ x: -100, opacity: 0 }}
@@ -138,6 +232,23 @@ const OurApproach = () => {
                                     </div>
                                 ))}
                             </div>
+                        </motion.div>
+                        <motion.div
+                            ref={leavesDeskRef}
+                            initial={{ opacity: 0 }}
+                            animate={
+                                isLeavesDeskInView
+                                    ? { opacity: 1 }
+                                    : { opacity: 0 }
+                            }
+                            transition={{ duration: 0.7, ease: "easeOut" }}
+                            className=" hidden lg:block w-[316px] h-[316px] absolute bottom-[-143px] right-[28px] -z-20"
+                        >
+                            <Image
+                                src={leavesDesk}
+                                alt="leaves desk"
+                                className="object-cover"
+                            />
                         </motion.div>
                     </div>
                     <div className="space-y-8">
