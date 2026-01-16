@@ -11,7 +11,7 @@ import WeWorkWith from "@/components/homepage/WeWorkWith";
 import BottomCTA from "@/components/shared/bottomCTA/BottomCTA";
 import { client } from "@/sanityClient";
 import { heroBlurCardQuery, portfolioProjectsQuery } from "@/lib/queries";
-import { getGoogleReviews } from "@/lib/api";
+import { getGoogleReviews, getGoogleReviewsPlaces } from "@/lib/api";
 import Reviews from "@/components/homepage/Reviews";
 
 export async function generateMetadata({ params }) {
@@ -35,7 +35,9 @@ export default async function Home() {
     const heroBlurCardData = await client.fetch(heroBlurCardQuery);
     const portfolioData = await client.fetch(portfolioProjectsQuery);
     //const googleReviews = await getGoogleReviews();
-    const googleReviews = [];
+    const googleReviews = await getGoogleReviewsPlaces();
+    console.log(googleReviews);
+    //const googleReviews = [];
 
     return (
         <div className="flex flex-col min-h-screen">
