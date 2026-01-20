@@ -108,6 +108,19 @@ export const serviceBySlugQuery = `
   }
 `;
 
+// All project testimonials (for homepage reviews section)
+export const projectReviewsQuery = `
+  *[_type == "project" && defined(testimonial) && defined(testimonial.text)]{
+    "reviewId": _id,
+    "reviewer": {
+      "displayName": testimonial.clientName,
+      "profilePhotoUrl": testimonial.clientPhoto.asset->url
+    },
+    "comment": testimonial.text,
+    "roomPhotoUrl": testimonial.roomPhoto.asset->url
+  }
+`;
+
 export const blogsQuery = `
   *[_type == "blog"] {
     _id,

@@ -78,7 +78,8 @@ export default function SwiperWrapper({
             className={twMerge(
               `flex items-center pointer-events-none ${buttonsPositionClass[buttonsPosition]}`,
               buttonsPosition === "onSlides" ? "justify-between" : buttonsPosition === "center" ? "justify-center gap-6 md:gap-10" : "justify-between sm:gap-3",
-              buttonsVisibilityClass
+              // For dark-theme (and any future always-visible variants), ignore visibility class
+              buttonVariant === "dark-theme" ? "" : buttonsVisibilityClass
             )}
           >
             {buttonVariant === "portfolio" ? (
@@ -136,6 +137,65 @@ export default function SwiperWrapper({
                       </>
                     ) : (
                       <span className="text-primary-white group-hover:text-primary-black">→</span>
+                    )}
+                  </div>
+                </button>
+              </>
+            ) : buttonVariant === "dark-theme" ? (
+              <>
+                <button
+                  disabled={isBeginning && !loop}
+                  onClick={() => {
+                    if (swiperInstanceRef.current) {
+                      swiperInstanceRef.current.slidePrev();
+                    }
+                  }}
+                  className="border border-primary-black rounded-full w-[54px] h-[54px] flex items-center justify-center hover:bg-primary-black group transition-all duration-300 cursor-pointer pointer-events-auto disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <div className="bg-transparent border border-primary-black rounded-full w-[27px] h-[27px] flex items-center justify-center group-hover:border-primary-white transition-all duration-300">
+                    {customPrevIcon ? (
+                      <>
+                        <Image
+                          src={customPrevIcon.black || customPrevIcon.white}
+                          alt="arrow button"
+                          className="block group-hover:hidden transition-transform duration-300 rotate-180"
+                        />
+                        <Image
+                          src={customPrevIcon.white || customPrevIcon.black}
+                          alt="arrow button"
+                          className="hidden group-hover:block transition-transform duration-300"
+                        />
+                      </>
+                    ) : (
+                      <span className="text-primary-black group-hover:text-primary-white">←</span>
+                    )}
+                  </div>
+                </button>
+                <button
+                  disabled={isEnd && !loop}
+                  onClick={() => {
+                    if (swiperInstanceRef.current) {
+                      swiperInstanceRef.current.slideNext();
+                    }
+                  }}
+                  className="border border-primary-black rounded-full w-[54px] h-[54px] flex items-center justify-center hover:bg-primary-black group transition-all duration-300 cursor-pointer pointer-events-auto disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <div className="bg-transparent border border-primary-black rounded-full w-[27px] h-[27px] flex items-center justify-center group-hover:border-primary-white transition-all duration-300">
+                    {customNextIcon ? (
+                      <>
+                        <Image
+                          src={customNextIcon.black || customNextIcon.white}
+                          alt="arrow button"
+                          className="block group-hover:hidden transition-transform duration-300"
+                        />
+                        <Image
+                          src={customNextIcon.white || customNextIcon.black}
+                          alt="arrow button"
+                          className="hidden group-hover:block transition-transform duration-300 rotate-180"
+                        />
+                      </>
+                    ) : (
+                      <span className="text-primary-black group-hover:text-primary-white">→</span>
                     )}
                   </div>
                 </button>

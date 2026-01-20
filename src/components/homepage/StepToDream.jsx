@@ -45,7 +45,7 @@ const StepToDream = () => {
             <Image
                 src={step3Mob}
                 alt="path of three"
-                className="hidden absolute top-0 left-[400px] -z-10 lg:block"
+                className="hidden absolute top-0 left-[400px] -z-10"
                 width={280}
                 height={280}
             />
