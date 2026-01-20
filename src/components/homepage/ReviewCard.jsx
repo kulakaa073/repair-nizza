@@ -1,14 +1,19 @@
 import Image from "next/image";
 
 export default function ReviewCard({ review }) {
-    // Google My Business API review structure
+    // Google My Business / Places API style review structure
     const reviewerName =
         review.reviewer?.displayName ||
-        review.reviewer?.profilePhotoUrl ||
+        review.authorName ||
+        review.name ||
         "Anonymous";
-    const profilePhoto = review.reviewer?.profilePhotoUrl || null;
+
+    const profilePhoto =
+        review.reviewer?.profilePhotoUrl || review.profilePhotoUrl || null;
+
     const rating =
-        review.starRating === "FIVE"
+        review.rating ||
+        (review.starRating === "FIVE"
             ? 5
             : review.starRating === "FOUR"
             ? 4
@@ -18,8 +23,9 @@ export default function ReviewCard({ review }) {
             ? 2
             : review.starRating === "ONE"
             ? 1
-            : 5;
-    const comment = review.comment || review.text || "";
+            : 5);
+
+    const comment = review.comment || review.text || review.reviewText || "";
 
     return (
         <div className="relative rounded-[8px] p-px w-full h-full">
