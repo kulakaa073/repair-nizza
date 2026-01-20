@@ -14,10 +14,10 @@ import { client } from "@/sanityClient";
 import {
     heroBlurCardQuery,
     portfolioProjectsQuery,
-    projectReviewsQuery,
+    //projectReviewsQuery,
 } from "@/lib/queries";
-import Reviews from "@/components/homepage/Reviews";
-import ProjectReviews from "@/components/homepage/ProjectReviews";
+//import Reviews from "@/components/homepage/Reviews";
+//import ProjectReviews from "@/components/homepage/ProjectReviews";
 
 export async function generateMetadata({ params }) {
     const { locale } = params;
@@ -43,7 +43,7 @@ export default async function Home() {
     //const googleReviews = await getGoogleReviewsPlaces();
     //console.log(googleReviews);
     //const googleReviews = [];
-    const projectReviews = await client.fetch(projectReviewsQuery);
+    //const projectReviews = await client.fetch(projectReviewsQuery);
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -56,7 +56,7 @@ export default async function Home() {
                 <DreamRepair />
                 <AboutUs />
                 <OurApproach />
-                <ProjectReviews reviews={projectReviews} />
+                {/* <ProjectReviews reviews={projectReviews} /> */}
                 <StepToDream />
             </main>
             <BottomCTA />
